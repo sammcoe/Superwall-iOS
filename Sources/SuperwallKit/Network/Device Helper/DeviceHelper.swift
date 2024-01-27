@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 import SystemConfiguration
-import CoreTelephony
+//import CoreTelephony
 
 class DeviceHelper {
   var locale: String {
