@@ -7,7 +7,7 @@
 //
 // swiftlint:disable cyclomatic_complexity function_body_length
 
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS) || os(visionOS)
 import UIKit
 #elseif os(watchOS)
 import UIKit
@@ -273,7 +273,7 @@ private func guid() -> Data {
     return data
   }
   return Data()
-#elseif !targetEnvironment(macCatalyst) && (os(iOS) || os(tvOS))
+#elseif !targetEnvironment(macCatalyst) && (os(iOS) || os(tvOS) || os(visionOS))
   if let identifierForVendor = UIDevice.current.identifierForVendor {
     var rawUUID = identifierForVendor.uuid
     let count = MemoryLayout.size(ofValue: rawUUID)

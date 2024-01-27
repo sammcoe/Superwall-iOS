@@ -119,6 +119,7 @@ class DeviceHelper {
   }
 
   var interfaceStyle: String {
+#if !os(visionOS)
     let style = UIScreen.main.traitCollection.userInterfaceStyle
     switch style {
     case .unspecified:
@@ -130,6 +131,9 @@ class DeviceHelper {
     default:
       return "Unknown"
     }
+      #else
+      return "Unspecified"
+      #endif
 	}
 
   var platformWrapper: String?

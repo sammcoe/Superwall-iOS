@@ -14,7 +14,9 @@ struct SWProduct: Codable {
   var productIdentifier: String
   var isDownloadable: Bool
   var downloadContentLengths: [Double]
+#if !os(visionOS)
   var contentVersion: String
+    #endif
   var downloadContentVersion: String
   var isFamilyShareable: Bool?
   var subscriptionGroupIdentifier: String?
@@ -30,7 +32,9 @@ struct SWProduct: Codable {
     productIdentifier = product.productIdentifier
     isDownloadable = product.isDownloadable
     downloadContentLengths = product.downloadContentLengths.map { $0.doubleValue }
+#if !os(visionOS)
     contentVersion = product.contentVersion
+      #endif
     downloadContentVersion = product.downloadContentVersion
 
     if #available(iOS 14.0, *) {
@@ -61,7 +65,9 @@ struct SWProduct: Codable {
     productIdentifier = product.id
     isDownloadable = false
     downloadContentLengths = []
+#if !os(visionOS)
     contentVersion = ""
+      #endif
     downloadContentVersion = ""
 
     isFamilyShareable = product.isFamilyShareable
